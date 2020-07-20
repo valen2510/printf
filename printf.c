@@ -6,11 +6,16 @@
  */
 int _printf(const char *format, ...)
 {
+<<<<<<< HEAD
 	print_f printf[] = {
+=======
+	types printf[] = {
+>>>>>>> 12321bfafcf2608ece754086cc19ab780dc0b4f5
 		{"c", printc},
 		{NULL, NULL}
 	};
 
+<<<<<<< HEAD
 	va_list list;
 	unsigned int i = 0, j = 0;
 	va_start(list, format);
@@ -61,4 +66,33 @@ int main(void)
     printf("String:[%s]\n", "I am a string !");
 
     return (0);
+=======
+	unsigned int i, j;
+	va_list list;
+
+	va_start(list, format);
+
+	for (i = 0; format[i] != '\0'; i++)
+	{
+		if (format[i] == '%')
+		{
+			for (j = 0; printf[j].p != NULL; j++)
+			{
+				if (format[i + 1] == printf[j].p[0])
+				{
+					printf[j].func(list);
+					i++;
+				}
+			}
+		}
+
+		else
+		{
+			_putchar(format[i]);
+		}
+
+	}
+	va_end(list);
+	return (0);
+>>>>>>> 12321bfafcf2608ece754086cc19ab780dc0b4f5
 }

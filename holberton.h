@@ -9,7 +9,8 @@
 
 int _putchar(char c);
 int _printf(const char *format, ...);
-int printc(char c);
+int printc(va_list l);
+int _putchar(char c);
 
 /**
  * struct types - specifier structure for printf 
@@ -19,7 +20,7 @@ int printc(char c);
 typedef struct types
 {
 	char *p;
-	void (*func)(va_list);
-};
+	int (*func)(va_list);
+}types;
 
 #endif /* Holberton_h */
