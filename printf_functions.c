@@ -9,8 +9,9 @@ int _putchar(char c)
 /**
  *
  */
-void printc(va_list list)
+int printc(va_list list)
 {
 	_putchar(va_arg(list, int));
+	return (0);
 }
 
