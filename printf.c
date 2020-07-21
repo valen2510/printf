@@ -3,7 +3,7 @@
  * _printf - printf function.
  * @format: variable
  *
- * Return: 0.
+ * Return: nbytes printed.
  */
 int _printf(const char *format, ...)
 {
@@ -20,6 +20,7 @@ int _printf(const char *format, ...)
 		{
 			if (format[i + 1] == '\0')
 				return (-1);
+
 			else if (format[i + 1] == '%')
 			{
 				_putchar('%');
@@ -58,8 +59,11 @@ int (*cmp_func(const char a))(va_list)
 	print_f printf[] = {
 		{'c', printc},
 		{'s', print_string},
+		{'d', print_n},
+		{'i', print_n},
 		{'\0', NULL}
 	};
+
 	int k;
 
 	for (k = 0; printf[k].p != '\0'; k++)
@@ -69,5 +73,6 @@ int (*cmp_func(const char a))(va_list)
 			return (printf[k].func);
 		}
 	}
+
 	return (0);
 }
