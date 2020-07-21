@@ -30,12 +30,6 @@ int _printf(const char *format, ...)
 			{
 				j += (cmp_func(format[i + 1]))(list);
 				i++;
-				if (j == (-1))
-				{
-					_putchar('%');
-					_putchar(format[i]);
-					j += 2;
-				}
 			}
 		}
 		else
