@@ -60,37 +60,38 @@ int print_n(va_list n)
 
 	count = 0;
 	num = va_arg(n, int);
-
-	if (num < 0 && num > -2000000000)
+	if (num)
 	{
-		num *= -1;
-		_putchar(45);
-		count++;
-	}
-	if (num >= 0 && num <= 9)
-	{
-		_putchar(num + 48);
-		count++;
-	}
-	if (num > 9 && num < 2000000000)
-	{
-		b = 10;
-
-		while (num / b > 9)
+		if (num < 0)
 		{
-			b *= 10;
-		}
-
-		while (b > 0)
-		{
-			aux = num / b;
-			num = num % b;
-			_putchar(aux + 48);
-			b = b / 10;
+			num *= -1;
+			_putchar(45);
 			count++;
+		}
+		if (num >= 0 && num <= 9)
+		{
+			_putchar(num + 48);
+			count++;
+		}
+		else
+		{
+			b = 10;
+
+			while (num / b > 9)
+			{
+				b *= 10;
+			}
+
+			while (b > 0)
+			{
+				aux = num / b;
+				num = num % b;
+				_putchar(aux + 48);
+				b = b / 10;
+				count++;
+			}
 		}
 		return (count);
 	}
-	else
-		return (-1);
+	return (0);
 }
