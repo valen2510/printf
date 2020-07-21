@@ -7,12 +7,6 @@
  */
 int _printf(const char *format, ...)
 {
-	print_f printf[] = {
-	{"c", printc},
-	{"s", print_string},
-	{NULL, NULL}
-	};
-
 	va_list list;
 	unsigned int i = 0, j = 0;
 
@@ -24,20 +18,54 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			for (j = 0; printf[j].p != NULL; j++)
+			if (format[i + 1] == '%')
 			{
-				if (format[i + 1] == printf[j].p[0])
-				{
-					printf[j].func(list);
-					i++;
-				}
+				_putchar('%');
+				i++;
+				j++;
+			}
+			else if (cmp_func(format, i + 1) != NULL)
+			{
+				j += (cmp_func(format, i + 1))(list);
+				i++;
+			}
+			else
+			{
+				_putchar(format[i]);
+				j++;
 			}
 		}
 		else
 		{
 			_putchar(format[i]);
 		}
+	}
+	va_end(list);
+	return (j);
 }
-va_end(list);
-return (0);
+
+/**
+ * cmp_func - Entry point
+ * @a: Pointer
+ * @ubc: integer
+ *
+ * Return: 0.
+ */
+int (*cmp_func(const char *a, int ubc))(va_list)
+{
+	print_f printf[] = {
+		{"c", printc},
+		{"s", print_string},
+		{NULL, NULL}
+	};
+	int k;
+
+	for (k = 0; printf[k].p != NULL; k++)
+	{
+		if (printf[k].p[0] == a[ubc])
+		{
+			return (printf[k].func);
+		}
+	}
+	return (NULL);
 }
