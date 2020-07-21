@@ -10,7 +10,7 @@ int _printf(const char *format, ...)
 	va_list list;
 	unsigned int i = 0, j = 0;
 
-	if (format == NULL)
+	if (!format)
 		return (-1);
 
 	va_start(list, format);
@@ -24,9 +24,9 @@ int _printf(const char *format, ...)
 				i++;
 				j++;
 			}
-			else if (cmp_func(format, i + 1) != NULL)
+			else if (cmp_func(format[i + 1]) != NULL)
 			{
-				j += (cmp_func(format, i + 1))(list);
+				j += (cmp_func(format[i + 1]))(list);
 				i++;
 			}
 			else
@@ -51,21 +51,21 @@ int _printf(const char *format, ...)
  *
  * Return: 0.
  */
-int (*cmp_func(const char *a, int ubc))(va_list)
+int (*cmp_func(const char a))(va_list)
 {
 	print_f printf[] = {
-		{"c", printc},
-		{"s", print_string},
-		{NULL, NULL}
+		{'c', printc},
+		{'s', print_string},
+		{'\0', NULL}
 	};
 	int k;
 
-	for (k = 0; printf[k].p != NULL; k++)
+	for (k = 0; printf[k].p != '\0'; k++)
 	{
-		if (printf[k].p[0] == a[ubc])
+		if (printf[k].p == a)
 		{
 			return (printf[k].func);
 		}
 	}
-	return (NULL);
+	return (fail);
 }
