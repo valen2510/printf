@@ -20,13 +20,13 @@ int _printf(const char *format, ...)
 		{
 			if (format[i + 1] == '\0')
 				return (-1);
-			if (format[i + 1] == '%')
+			else if (format[i + 1] == '%')
 			{
 				_putchar('%');
-				i++;
 				j++;
+				i++;
 			}
-			else if (cmp_func(format[i + 1]) != NULL)
+			if (cmp_func(format[i + 1]) != NULL)
 			{
 				j += (cmp_func(format[i + 1]))(list);
 				i++;
@@ -64,5 +64,5 @@ int (*cmp_func(const char a))(va_list)
 			return (printf[k].func);
 		}
 	}
-	return (fail);
+	return (0);
 }

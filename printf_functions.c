@@ -47,13 +47,3 @@ int print_string(va_list s)
 	}
 	return (k);
 }
-/**
- * fail - return -1.
- * @un: unused variable.
- *
- * Return: -1.
- */
-int fail(__attribute__((unused)) va_list un)
-{
-	return (-1);
-}

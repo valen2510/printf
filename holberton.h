@@ -23,6 +23,5 @@ int _printf(const char *format, ...);
 int printc(va_list l);
 int print_string(va_list s);
 int (*cmp_func(const char a))(va_list);
-int fail(__attribute__((unused)) va_list un);
 
 #endif /* Holberton_h */
