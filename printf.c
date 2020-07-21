@@ -29,15 +29,11 @@ int _printf(const char *format, ...)
 				j += (cmp_func(format[i + 1]))(list);
 				i++;
 			}
-			else
-			{
-				_putchar(format[i]);
-				j++;
-			}
 		}
 		else
 		{
 			_putchar(format[i]);
+			j++;
 		}
 	}
 	va_end(list);
@@ -46,8 +42,7 @@ int _printf(const char *format, ...)
 
 /**
  * cmp_func - Entry point
- * @a: Pointer
- * @ubc: integer
+ * @a: character.
  *
  * Return: 0.
  */
