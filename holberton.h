@@ -11,6 +11,7 @@ int _putchar(char c);
 int _printf(const char *format, ...);
 int printc(va_list l);
 int _putchar(char c);
+int print_string(va_list s);
 
 /**
  * struct types - specifier structure for printf 
