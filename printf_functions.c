@@ -93,5 +93,6 @@ int print_n(va_list n)
 		}
 		return (count);
 	}
+	_putchar(48);
 	return (0);
 }
