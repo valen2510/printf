@@ -26,11 +26,17 @@ int _printf(const char *format, ...)
 				j++;
 				i++;
 			}
-			if (cmp_func(format[i + 1]) != NULL)
+			else if (cmp_func(format[i + 1]) != NULL)
 			{
 				j += (cmp_func(format[i + 1]))(list);
 				i++;
 			}
+			else
+			{
+				_putchar(format[i]);
+				j++;
+			}
+			
 		}
 		else
 		{
