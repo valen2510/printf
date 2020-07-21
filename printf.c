@@ -18,6 +18,8 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
+			if (format[i + 1] == '\0')
+				return (-1);
 			if (format[i + 1] == '%')
 			{
 				_putchar('%');
@@ -28,6 +30,12 @@ int _printf(const char *format, ...)
 			{
 				j += (cmp_func(format[i + 1]))(list);
 				i++;
+				if (j == (-1))
+				{
+					_putchar('%');
+					_putchar(format[i]);
+					j += 2;
+				}
 			}
 		}
 		else
