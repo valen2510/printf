@@ -56,43 +56,40 @@ int print_string(va_list s)
 int print_n(va_list n)
 {
 
-	int num, count, aux, b;
+	long int num;
+	int count, aux, b;
 
 	count = 0;
 	num = va_arg(n, int);
-	if (num)
+
+	if (num < 0)
 	{
-		if (num < 0)
-		{
-			num *= -1;
-			_putchar(45);
-			count++;
-		}
-		if (num >= 0 && num <= 9)
-		{
-			_putchar(num + 48);
-			count++;
-		}
-		else
-		{
-			b = 10;
-
-			while (num / b > 9)
-			{
-				b *= 10;
-			}
-
-			while (b > 0)
-			{
-				aux = num / b;
-				num = num % b;
-				_putchar(aux + 48);
-				b = b / 10;
-				count++;
-			}
-		}
-		return (count);
+		num *= -1;
+		_putchar(45);
+		count++;
 	}
-	_putchar(48);
-	return (0);
+	if (num >= 0 && num <= 9)
+	{
+		_putchar(num + 48);
+		count++;
+	}
+	if (num > 9)
+	{
+		b = 10;
+
+		while (num / b > 9)
+		{
+			b *= 10;
+		}
+
+		while (b > 0)
+		{
+			aux = num / b;
+			num = num % b;
+			_putchar(aux + 48);
+			b = b / 10;
+			count++;
+		}
+	}
+	return (count);
 }
