@@ -61,7 +61,7 @@ int print_n(va_list n)
 	count = 0;
 	num = va_arg(n, int);
 
-	if (num < 0)
+	if (num < 0 && num > -2000000000)
 	{
 		num *= -1;
 		_putchar(45);
@@ -72,7 +72,7 @@ int print_n(va_list n)
 		_putchar(num + 48);
 		count++;
 	}
-	else
+	if (num > 9 && num < 2000000000)
 	{
 		b = 10;
 
@@ -89,6 +89,8 @@ int print_n(va_list n)
 			b = b / 10;
 			count++;
 		}
+		return (count);
 	}
-	return (count);
+	else
+		return (-1);
 }
