@@ -43,3 +43,10 @@ int print_string(va_list s)
 	}
 	return (k);
 }
+/**
+ * 
+ */
+int fail(__attribute__((unused)) va_list un)
+{
+	return (-1);
+}
