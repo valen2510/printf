@@ -7,7 +7,7 @@
  */
 int _printf(const char *format, ...)
 {
-print_f printf[] = {
+	print_f printf[] = {
 	{"c", printc},
 	{"s", print_string},
 	{NULL, NULL}
