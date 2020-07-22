@@ -32,19 +32,9 @@ If everything is succesful the function returns the number of characteres printe
 
  File        | Description |
 | ----------- | ----------- |
-| [holberton.h](https://github.com/valen2510/printf/blob/master/holberton.h) | **Header file**
-<br>Include all  function prototypes
-<br> inlcude structure of specifiers|
-| [printf.c](https://github.com/valen2510/printf/blob/master/printf.c) | **Project function: _printf**
-    <br> Start the variadic list.
-        <br> Iterates string  format  of entry and check for a moldule symbol (%) . If  the symbol is found then check if the next char match with one of the valid specifiers in the structure using the auxiliar function to comapare ( comp), in that case the respective function of these format is called.
-	    <br> For the characters that doesn't match any of the formats the function ignores the module symbole and print it  as a string.
-	        <br> In case that  the module symbole is not found, print the each character normally.|
-| [printf_functions.c](https://github.com/valen2510/printf/blob/master/printf_functions.c)  | **Auxiliar functions**
-    <br> _putchar: using write function, prints a character
-        <br> printc: print character using list variable
-	    <br> print_string: pint strings, if  string is null it pirnts (null)
-	        <br> print_n: print numbers base 10.|
+| [holberton.h](https://github.com/valen2510/printf/blob/master/holberton.h)                | **Header file**<br>Include all  function prototypes<br> Include structure of specifiers|
+| [printf.c](https://github.com/valen2510/printf/blob/master/printf.c)                      | **Project function: _printf** <br> Start the variadic list.<br> Iterates string  format  of entry and check for a moldule symbol (%) . If  the symbol is found then check if the next char match with one of the valid specifiers in the structure using the auxiliar function to comapare ( comp), in that case the respective function of these format is called.<br> For the characters that doesn't match any of the formats the function ignores the module symbole and print it  as a string.<br> In case that  the module symbole is not found, print the each character normally.|
+| [printf_functions.c](https://github.com/valen2510/printf/blob/master/printf_functions.c)  | **Auxiliar functions**<br> _putchar: using write function, prints a character<br> printc: print character using list variable.<br> print_string: pint strings, if string is null it pirnts (null)<br> print_n: print numbers base 10.|
 
 <h3>Contributors</h3>
 
