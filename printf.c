@@ -8,7 +8,7 @@
 int _printf(const char *format, ...)
 {
 	va_list list;
-	unsigned int i = 0, j = 0;
+	unsigned int i = 0, characters_number = 0;
 
 	if (!format)
 		return (-1);
@@ -24,28 +24,28 @@ int _printf(const char *format, ...)
 			else if (format[i + 1] == '%')
 			{
 				_putchar('%');
-				j++;
+				characters_number++;
 				i++;
 			}
 			else if (cmp_func(format[i + 1]) != NULL)
 			{
-				j += (cmp_func(format[i + 1]))(list);
+				characters_number += (cmp_func(format[i + 1]))(list);
 				i++;
 			}
 			else
 			{
 				_putchar(format[i]);
-				j++;
+				characters_number++;
 			}
 		}
 		else
 		{
 			_putchar(format[i]);
-			j++;
+			characters_number++;
 		}
 	}
 	va_end(list);
-	return (j);
+	return (characters_number);
 }
 
 /**
